@@ -26,8 +26,9 @@ export default {
     },
     methods: {
         getRandomFact() {
+            console.log(process.env);
             this.fetched = false;
-            let apiKeyFact = "";
+            let apiKeyFact = process.env.VUE_APP_FACT_KEY;
             let headers = {
                 'X-Api-Key': apiKeyFact
             };
@@ -40,7 +41,7 @@ export default {
         },
         translateText(text) {
             this.fetched = false;
-            let apiKeyDeepl = "";
+            let apiKeyDeepl = process.env.VUE_APP_TRAD_KEY;
             let url = `https://api-free.deepl.com/v2/translate?auth_key=${apiKeyDeepl}&target_lang=FR&tag_handling=html&preserve_formatting=true&text=${text}`;
             axios
                 .get(url)
