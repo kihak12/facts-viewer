@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         getRandomFact() {
-            console.log(process.env);
             this.fetched = false;
             let apiKeyFact = process.env.VUE_APP_FACT_KEY;
             let headers = {
